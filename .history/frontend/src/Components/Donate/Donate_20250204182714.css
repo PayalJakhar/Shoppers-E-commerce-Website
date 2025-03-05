@@ -1,0 +1,29 @@
+.donate {
+    position: fixed;
+    bottom:1px;
+    display:flex;
+    justify-content:center;
+    width: 100%;
+    background-color: rgb(137, 196, 208);
+    padding: 10px 5px 10px 5px;
+    border: 1px solid #ccc;
+    z-index: 1000; 
+    opacity:0.8;
+}
+
+p{
+    padding-top:5px;
+    weight:200;
+    font-size:20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #01385d;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  

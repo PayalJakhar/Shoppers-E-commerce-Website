@@ -1,0 +1,173 @@
+
+
+import React, { useState } from "react";
+import "./Donation.css";
+
+const Donation = () => {
+  const [rows, setRows] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isHappen, setIsHappen] = useState(false);
+  const [selectedNGOs, setSelectedNGOs] = useState(null);
+  const [clothesDetails, setClothesDetails] = useState([]);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    city: "",
+    pincode: "",
+    donationDate: "",
+  });
+
+  const [cloth, setCloth] = useState({
+    type: "",
+    quantity: "",
+    damage: "",
+    description: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleClothesChange = (index, e) => {
+    const { name, value } = e.target;
+    const updatedClothes = [...clothesDetails];
+    updatedClothes[index][name] = value;
+    setClothesDetails(updatedClothes);
+  };
+
+  const handleNGOSelect = (ngo) => {
+    setSelectedNGOs(ngo);
+    setFormData({ ...formData, ngo: ngo.name });
+  };
+
+  const addRow = (e) => {
+    if (e) e.preventDefault(); // Prevent default if event exists
+    setClothesDetails([...clothesDetails, { type: "", quantity: "", damage: "", description: "" }]);
+  };
+  
+
+  const removeRow = (index) => {
+    setClothesDetails(clothesDetails.filter((_, i) => i !== index));
+  };
+
+  const handleDonationSubmit = async (e) => {
+    e.preventDefault();
+    console.log("Donation function executed", clothesDetails);
+
+    const donationData = {
+      ...formData,
+      clothesDetails,
+      ngo: { name: selectedNGOs?.name || "" },
+    };
+
+    try {
+      const response = await fetch("http://localhost:4000/donation", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(donationData),
+      });
+
+      const responseData = await response.json();
+
+      if (responseData.success) {
+        alert("Donation Successful! Thank you for your contribution.");
+        window.location.replace("/");
+      } else {
+        alert(responseData.error || "An error occurred. Please try again.");
+      }
+    } catch (error) {
+      alert("Failed to submit donation. Please check your connection.");
+    }
+  };
+
+  const [quantity, setQuantity] = useState(0);
+  const setQuantities = (e) =>{
+    let total= parseInt(e.target.value);
+    setQuantity((prev)=>{ return prev+total});
+  }
+
+  return (
+    <div className="container">
+      <h1>Donate Now</h1>
+      <form onSubmit={handleDonationSubmit}>
+        <input className="inpt" value={formData.name} onChange={handleChange} type="text" name="name" placeholder="Your Name" required />
+        <input className="inpt" value={formData.email} onChange={handleChange} type="email" name="email" placeholder="Your Email" required />
+        <input className="inpt" value={formData.phone} onChange={handleChange} type="number" name="phone" placeholder="Enter Phone number" required />
+        <input className="inpt" value={formData.address} onChange={handleChange} type="text" name="address" placeholder="Your Address" required />
+        <input className="inpt" value={formData.city} onChange={handleChange} type="text" name="city" placeholder="Your City" required />
+        <input className="inpt" value={formData.pincode} onChange={handleChange} type="text" name="pincode" placeholder="Your Pincode" required />
+
+        <p>Give details about the clothes you want to donate:</p>
+
+
+        {clothesDetails.length ===0 && (
+          <div className="helo">
+          <button className="btn" type="button" onClick={ ()=>{ addRow();}}>Proceed</button>
+          <hr/>
+          </div>
+        )}
+        
+        {clothesDetails.map((clothing, index) => (
+          <div className="container-in" key={index}>
+            <select className="inpt" name="type" value={clothing.type} onChange={(e) => handleClothesChange(index, e)} required>
+              <option value="">Select Type</option>
+              <option value="T-shirt">T-shirt</option>
+              <option value="Shirt">Shirt</option>
+              <option value="Jeans">Jeans</option>
+              <option value="Trouser">Trouser</option>
+            </select>
+            <input className="inpt" type="text" name="quantity" placeholder="Quantity" value={clothing.quantity || ""} onChange={(e) => {handleClothesChange(index, e); setQuantities(e);}} required />
+            <input className="inpt" type="text" name="damage" placeholder="Damage Percentage" value={clothing.damage} onChange={(e) => handleClothesChange(index, e)} required />
+            <textarea name="description" rows="1" cols="50" placeholder="Enter description..." value={clothing.description} onChange={(e) => handleClothesChange(index, e)}></textarea>
+            <button className="btn" type="button" onClick={addRow}>ADD</button>
+            <button className="btn" type="button" onClick={() => removeRow(index)}>X</button>
+          </div>
+        ))}
+
+        {quantity>= 5 && (
+          <button className="btn" type="button" onClick={() => setIsOpen(true)}>
+            Proceed
+          </button>
+        )}
+
+
+        {isOpen && (
+          <div className="modal">
+            <div className="modal-content">
+              <span className="close" onClick={() => setIsOpen(false)}>&times;</span>
+              <h2>Preferred NGOs</h2>
+              <div className="dropdown">
+                <div className="dropdown-header" onClick={() => setIsHappen(!isHappen)}>
+                  {selectedNGOs ? selectedNGOs.name : "Choose NGOs"}
+                </div>
+                {isHappen && (
+                  <div className="dropdown-menu">
+                    {["Red Cross", "UNICEF", "Save the Children", "Charity: Water", "ANY"].map((ngo, index) => (
+                      <label key={index} className="ngo-option">
+                        <input type="radio" name="ngo" onChange={() => handleNGOSelect({ name: ngo })} />
+                        <span>{ngo}</span>
+                      </label>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <label>Preferred Date for Donation:</label>
+              <input className="inpts" type="date" name="donationDate" value={formData.donationDate} onChange={handleChange} required />
+              <button className="donate-button" type="submit">Donate Now</button>
+            </div>
+          </div>
+        )}
+
+      </form>
+    </div>
+  );
+};
+
+export default Donation;

@@ -1,0 +1,80 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: rgba(153, 94, 199, 0.5);
+    padding: 30px;
+    width: 90vw;
+    max-width: 1000px;
+    max-height: 70vh;
+    overflow-y: auto;
+    text-align: center;
+    margin: 20px auto;
+    border-radius: 12px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.inpt, select, textarea {
+    width: 100%;
+    max-width: 250px;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+textarea {
+    height: 40px;
+    resize: none;
+}
+
+textarea::placeholder {
+    text-align: center;
+    line-height: 40px;
+    color: #888;
+}
+
+.btn, .btns {
+    background-color: #995ec7;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn:hover, .btns:hover {
+    background-color: #530570;
+}
+
+.container-in {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 15px;
+}
+
+.container-in input,
+.container-in select {
+    width: 180px;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.btns {
+    width: 260px;
+    margin-top: 15px;
+}

@@ -1,0 +1,11 @@
+.donate {
+    position: fixed;
+    top: 20px; /* Adjust based on your preference */
+    right: 20px;
+    width: 200px;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    z-index: 1000; /* Ensures it's above other elements */
+  }
+  

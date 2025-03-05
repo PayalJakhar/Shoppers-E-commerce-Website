@@ -1,0 +1,13 @@
+.donate {
+    position: fixed;
+    top: 20px;
+    display:flex;
+    
+    /* right: 20px; */
+    width: 80%;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    z-index: 1000; 
+  }
+  

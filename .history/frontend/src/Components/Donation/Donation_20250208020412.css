@@ -1,0 +1,469 @@
+/* .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgba(153, 94, 199, 0.7); 
+    padding: 20px;
+    width: 100vw;
+    max-width: 1200px;
+    height: 50vh;
+    overflow-y: auto;
+    text-align: center;
+    margin: 10px auto;
+    padding-top: 50px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    border-radius: 10px; 
+}
+
+.container {
+    background: rgba(153, 94, 199, 0.5); 
+
+}
+
+h1 {
+    color: #333;
+}
+
+.inpt {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn {
+    background-color: #995ec7;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #530570;
+}
+
+.container-in {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    gap: 10px; 
+}
+
+.container-in input {
+    width: 140px;
+}
+
+textarea {
+    height: 30px;
+    padding: 5px;
+    border-style:none;
+}
+
+textarea::placeholder {
+    text-align: center;
+    line-height: 30px; 
+    color: #aaa; 
+}
+
+.btns {
+    background-color: #995ec7;
+    color: #fff;
+    padding: 10px 20px;
+    width:250px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btns:hover {
+    background-color: #530570;
+}
+
+.modal {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    right:0;
+    bottom:0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.5); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.donate-button {
+    background-color: #802ea5; 
+    color: white; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    margin: 15px 2px 0px 2px; 
+    cursor: pointer; 
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    border:none;
+}
+
+.donate-button:hover {
+    background-color: #170122;
+    
+}
+
+.open-modal-button {
+    background-color: #ffebcd; 
+    color: #333; 
+    padding: 10px 15px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    margin: 20px;
+    transition: background-color 0.3s;
+}
+
+.modal-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.modal-content li {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+    padding: 8px 0; 
+    font-size: 16px;
+}
+
+
+.open-modal-button:hover {
+    background-color: #f0e68c;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.dropdown-header {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 2;
+}
+
+.ngo-option {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.ngo-option input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.ngo-option span {
+    flex-grow: 1;
+    cursor: pointer;
+    color: #802ea5;
+    font-weight: 500;
+}
+
+.ngo-option span:hover {
+    text-decoration: underline;
+}
+
+.inpts {
+    width: 98%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+} */
+
+
+/* General Form Styling */
+html, body {
+    height: 100%;
+    overflow-y: auto; /* Allow page scrolling */
+}
+.form-container {
+    width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f8f1f9; /* Light purple background */
+    border-radius: 10px;
+    border: 1px solid #d0a0d0; /* Light purple border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for a floating effect */
+    max-height: 500px;
+    overflow-y: auto; /* Enable scrolling if the content overflows */
+  }
+  
+.form-container h3 {
+    color: #6a4c9c; /* Darker purple for section headings */
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+  
+  .form-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: #5f3f7e; /* Slightly darker purple text */
+    font-weight: 600;
+  }
+  
+  .form-container input,
+  .form-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #d0a0d0; /* Light purple border */
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 1rem;
+  }
+  
+  /* .form-container input[type="number"],
+  .form-container select {
+    -moz-appearance: textfield; Remove spinner on number inputs */
+  /* } */
+  
+  /* Flexbox for clothes details */
+  .clothes-details-section {
+    margin-top: 30px;
+  }
+  
+  .clothes-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f1e6f7; /* Light purple background for each clothing item */
+    border-radius: 8px;
+    width:680px;
+    
+}
+  
+  .clothes-item {
+    flex: 1;
+    margin-right: 8px;
+  }
+.clothes-item:nth-child(2) {  
+    margin-right: 26px; /* Adds extra space after Quantity */
+}
+  .clothes-item:last-child {
+    margin-right: 15px;
+  }
+  
+  .clothes-item label {
+    font-size: 0.9rem;
+    /* width:80px; */
+    color: #5f3f7e; /* Darker purple for labels */
+  }
+  
+  .clothes-item select,
+  .clothes-item input {
+    font-size: 1rem;
+    padding: 8px;
+    border-radius: 6px;
+  }
+  .remove-clothes-item{
+    width:10px;
+    margin-right:40px;
+    margin-left: 30px;
+}
+  
+  /* General button styling */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #9b68d0; /* Purple background for buttons */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  /* Hover Effects */
+  button:hover {
+    background-color: #8c5aad; /* Darker purple */
+    transform: translateY(-3px); /* Slight hover effect */
+  }
+  
+  button:active {
+    transform: translateY(2px); /* Button press effect */
+  }
+  
+  /* Specific button for "Add Clothes" */
+  button[type="button"] {
+    background-color: #6a4c9c; /* Dark purple for Add Clothes button */
+    margin-top: 10px;
+    width: auto; /* Set width to auto for the Add Clothes button to be smaller */
+    padding: 10px 16px; /* Smaller padding to make the button smaller */
+  }
+  
+  button[type="button"]:hover {
+    background-color: #936ed2; /* Darker purple on hover */
+  }
+  
+  /* Specific button for "Submit" */
+  button[type="submit"] {
+    background-color: #533189; /* Dark purple for Submit button */
+    margin-top: 20px; /* Add space between Add Clothes and Submit button */
+    width: 100%; /* Ensure Submit button takes full width */
+  }
+  
+  
+  /* Scrollbar styling */
+  .form-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .form-container::-webkit-scrollbar-thumb {
+    background-color: #d0a0d0;
+    border-radius: 4px;
+  }
+  
+  .form-container::-webkit-scrollbar-track {
+    background-color: #f3e6f5;
+  }
+  
+/* box_open */
+.close1 {
+  position: absolute;
+  top:174px;
+  right: 140px;
+  font-size: 20px;
+  cursor: pointer;
+  color: black;
+}
+.modal-overlay1{
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  right:0;
+  bottom:0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(0,0,0,0.5); 
+}
+
+.modal-content1 {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; 
+  border-radius: 10px;
+  text-align: center;
+  height:350px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+
+
+.modal-content1 ul {
+  list-style-type: none; /* Removes bullets */
+  padding: 0;
+  margin: 0;
+}
+.modal-content1 h2{
+  text-align: center; 
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+.donation-form select{
+  width:97%;
+}
+.donation-form input[type="date"] {
+  width: 95%; /* Ensures both take up the full width of their container */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  appearance: none; /* Removes default browser styling */
+}
+.donation-form label{
+  text-align: left;
+  margin-left:20px;
+}
+.visit-site-button{
+  width:8%;
+  margin-top:0px;
+  margin-left:30px;
+  font-size: 16px;;
+}
+.ngo-details{
+  display: flex;
+}
